@@ -87,30 +87,10 @@ const getUserById = async (req, res, next) => {
     }
 };
 
-const updateUser = async (req, res, next) => {
-    try {
 
-        const { id } = req.params;
-
-        if (req.user._id.toString() !== id) {
-            return res.status(400).json("No puedes modificar a alguien que no seas tu mismo")
-        }
-
-
-        const newUser = req.body;
-        const userUpdated = await User.findByIdAndUpdate(id, newUser, {
-            new: true,
-        });
-
-        return res.status(200).json(userUpdated);
-
-    } catch (error) {
-        return res.status(400).json("error");
-    }
-};
 
 module.exports = {
-    getUsers, getUserById, updateUser, registerUser, login
+    getUsers, getUserById, registerUser, login
 }
 
 

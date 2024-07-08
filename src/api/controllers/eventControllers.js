@@ -133,7 +133,7 @@ const addAssistant = async (req, res) => {
         const token = req.headers.authorization;
         const parsedToken = token.replace("Bearer ", "");
         const { id } = verifyKey(parsedToken);
-        console.log(id)
+
 
 
         const event = await Event.findById(req.params.id);

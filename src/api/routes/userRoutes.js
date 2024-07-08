@@ -10,7 +10,7 @@ usersRoutes.get("/", getUsers)
 usersRoutes.get("/:id", getUserById);
 usersRoutes.post("/register", registerUser)
 usersRoutes.post("/login", login)
-usersRoutes.put("/:id", isAuth, updateUser);
+
 
 
 
