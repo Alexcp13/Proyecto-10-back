@@ -83,8 +83,9 @@ const createEvent = async (req, res, next) => {
         }
         else {
 
-            newEvent.eventImg = 'https://res.cloudinary.com/dhqmsb9vm/image/upload/f_auto,q_auto/v1/eventos/h1a8empe3hm8nqf8apvt';
+            newEvent.eventImg = 'https://res.cloudinary.com/dhqmsb9vm/image/upload/v1722418176/eventos/events_mjc5ns.png';
         }
+
         const eventSaved = await newEvent.save()
 
         return res.status(201).json(eventSaved);

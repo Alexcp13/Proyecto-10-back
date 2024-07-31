@@ -16,17 +16,23 @@ const registerUser = async (req, res, next) => {
 
 
 
-        const userDuplicated = await User.findOne({ userName: req.body.userName });
 
 
-        const emailDuplicated = await User.findOne({ email: req.body.email });
+
+        const userDuplicated = await User.findOne({
+            $or: [
+
+                { userName: req.body.userName },
+                { email: req.body.email }
+            ]
+        });
+
+
 
         if (userDuplicated) {
             return res.status(400).json("Ese nombre de usuario ya existe")
         }
-        if (emailDuplicated) {
-            return res.status(400).json("Correo electronico ya en uso")
-        }
+
 
 
 
